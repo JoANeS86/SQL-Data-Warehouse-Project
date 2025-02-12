@@ -1,4 +1,51 @@
-/* SQL Project
+/*
+
+SQL Project
+
+==============================================================================
+
+Create Database 'DataWarehouse' and Schemas
+
+==============================================================================
+
+Script Purpose:
+	This script creates a new database named 'DataWarehouse' after checking if it already exists.
+	If the database exists, it is dropped and recreated. Additionally, the script sets up three schemas
+	within the database: 'Bronze', 'Silver' and 'Gold'.
+
+WARNING:
+	Running this script will drop the entire 'DataWarehouse' database if it exists.
+	All data in the database will be permanently deleted. Proceed with caution
+	and ensure you have proper backups before running this script.
+
+*/
+
+USE master;
+GO
+
+-- Drop and recreate the 'DataWarehouse' database
+
+IF EXISTS (SELECT 1 FROM sys.databases WHERE name = 'DataWarehouse')
+BEGIN
+	ALTER DATABASE DataWarehouse SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+	DROP DATABASE DataWarehouse;
+END;
+GO
+
+CREATE DATABASE DataWarehouse;
+
+USE DataWarehouse;
+
+CREATE SCHEMA Bronze;
+GO
+CREATE SCHEMA Silver;
+GO
+CREATE SCHEMA Gold;
+GO
+
+-- GO: Separate batches when working with multiple SQL statements.
+
+/*
 
 Bronze Layer
 
@@ -6,7 +53,9 @@ Bronze Layer
 a lot of stuff about the source (check ''Most common questions before connecting sources to DB'' snapshot).
 
 *** Create DDL for tables: You can ask the technical experts of the source systems or directly check the sources to try to define
-the structure of your tables and the data types.*/
+the structure of your tables and the data types.
+
+*/
 
 -- CREATE TABLE statements for the crm and erp sources:
 
@@ -60,10 +109,14 @@ CREATE TABLE Bronze.erp_px_cat_g1v2 (
 	maintenance		NVARCHAR(50)
 )
 
-/* T-SQL could be used before the CREATE TABLE statements in case we need to redo the table.
+/*
+
+T-SQL could be used before the CREATE TABLE statements in case we need to redo the table.
 
 IF OBJECT_ID ('tablename', 'U') IS NOT NULL
-	DROP TABLE tablename;*/
+	DROP TABLE tablename;
+
+*/
 
 -- BULK INSERT
 
@@ -75,7 +128,9 @@ WITH (
 	TABLOCK						-- It locks the table as it's being updated.
 );
 
-/* Once I've run the BULK statement, I'm going to:
+/*
+
+Once I've run the BULK statement, I'm going to:
 	
 	- Check the data that has been loaded.
 	- Use the COUNT function to compare the number of rows loaded VS number of rows in the source.
@@ -84,7 +139,9 @@ WITH (
 
 		TRUNCATE TABLE tablename;
 
-	TRUNCATE: Quickly delete all rows from a table, resetting it to an empty state.*/
+	TRUNCATE: Quickly delete all rows from a table, resetting it to an empty state.
+
+*/
 
 BULK INSERT Bronze.crm_prd_info
 FROM 'D:\Data Analytics\SQL\SQL Project\sql-data-warehouse-project\datasets\source_crm\prd_info.csv'
