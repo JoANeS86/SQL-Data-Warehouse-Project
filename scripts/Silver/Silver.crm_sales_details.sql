@@ -1,3 +1,11 @@
+/*
+
+Clean & Load crm_sales_details
+
+Before applying transformations and cleansing tasks, I need to detect the quality issues in the Bronze layer.
+
+*/
+
 -- Quality Check 1: I check column sls_ord_num for unwanted spaces (since there are not unwanted spaces, I'll leave the table as it is).
 
 SELECT
