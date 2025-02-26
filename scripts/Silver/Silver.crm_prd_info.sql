@@ -111,6 +111,9 @@ move them to Excel to figure out a potential solution:
 
 -- Now I insert the cleaned data into the Silver table for products.
 
+PRINT '>> Truncating Table: Silver.crm_prd_info';
+TRUNCATE TABLE Silver.crm_prd_info;
+PRINT '>> Inserting Data Into: Silver.crm_prd_info';
 INSERT INTO Silver.crm_prd_info (
 	prd_id,
 	cat_id,
