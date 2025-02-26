@@ -79,6 +79,9 @@ gender is maybe added as lower case (just in case).
 Finally, after checking that no more transformations are needed (I'm ok with the create_date field as it is),
 I'm adding the INSER INTO statement to populate the Silver.crm_cust_info table with clean data. */
 
+PRINT '>> Truncating Table: Silver.crm_cust_info';
+TRUNCATE TABLE Silver.crm_cust_info;
+PRINT '>> Inserting Data Into: Silver.crm_cust_info';
 INSERT INTO Silver.crm_cust_info (
 	cst_id,
 	cst_key,
