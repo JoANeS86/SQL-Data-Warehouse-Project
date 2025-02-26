@@ -12,6 +12,9 @@ SELECT * FROM Bronze.erp_loc_a101
 
 -- Quality Check 1: Tweak the cid to match the format used in other tables (crm_cust_info and the transformed erp_cust_az12).
 
+PRINT '>> Truncating Table: Silver.erp_loc_a101';
+TRUNCATE TABLE Silver.erp_loc_a101;
+PRINT '>> Inserting Data Into: Silver.erp_loc_a101';
 INSERT INTO Silver.erp_loc_a101 (
 	cid,
 	cntry
