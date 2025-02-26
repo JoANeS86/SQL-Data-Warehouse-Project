@@ -23,6 +23,9 @@ WHERE sls_ord_num != TRIM(sls_ord_num)
 
 -- Quality Check 2: Integrity of those columns that I'll use to create relationships to other tables.
 
+PRINT '>> Truncating Table: Silver.crm_sales_details';
+TRUNCATE TABLE Silver.crm_sales_details;
+PRINT '>> Inserting Data Into: Silver.crm_sales_details';
 INSERT INTO Silver.crm_sales_details (
 	sls_ord_num,
 	sls_prd_key,
