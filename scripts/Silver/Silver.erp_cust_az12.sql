@@ -13,6 +13,9 @@ Before applying transformations and cleansing tasks, I need to detect the qualit
    Looks like old data had that 'NAS' prefix and now new data doesn't have it, so I need to clean up those ids
    in order to be able to connect the tables. */
 
+PRINT '>> Truncating Table: Silver.erp_cust_az12';
+TRUNCATE TABLE Silver.erp_cust_az12;
+PRINT '>> Inserting Data Into: Silver.erp_cust_az12';
 INSERT INTO Silver.erp_cust_az12 (
 	cid,
 	bdate,
