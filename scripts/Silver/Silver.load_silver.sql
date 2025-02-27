@@ -6,6 +6,10 @@ Stored Procedure: Load Silver Layer (Bronze -> Silver)
 
 Stored Procedure to transform the data coming from the Bronze tables and inserting it into the Silver tables.
 
+Parameters:
+    None.
+  This stored procedure does not accept any parameters or return any values.
+
 Usage Example:
   EXEC Silver.load_bronze;
 ===================================================================
