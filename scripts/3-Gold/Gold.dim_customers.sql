@@ -18,7 +18,7 @@ ON ci.cst_key = ca.cid
 LEFT JOIN Silver.erp_loc_a101 la
 ON ci.cst_key = la.cid
 
--- After joining table, check if any duplicates were introduced by the join logic (use the COUNT function, grouping by cst_id).
+-- After joining table, check if any duplicates were introduced by the join logic (use the COUNT(*), grouping by cst_id).
 
 /* Now, if I check the results from the query above, I see an integration issue: There are two sources for the gender.
    I have to do Data Integration.
