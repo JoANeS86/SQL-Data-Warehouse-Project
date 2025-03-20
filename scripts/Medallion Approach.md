@@ -37,3 +37,21 @@
 ---
 
 ## 3. Silver Layer
+
+#### <ins>a/ Analyzing: Explore and Understand the Data.</ins>
+
+  * Understand the data within the tables and how to connect those (create **relationships**).
+
+    **Create the Integration Model.**
+
+#### <ins>b/ Coding: Data Cleansing.</ins>
+
+  * Check Quality of Bronze.
+
+  * Write Data Transformations.
+
+  * Insert into Silver.
+
+#### <ins>c/ Validating: Data Correctness Checks.</ins>
+
+#### <ins>d/ Docs & Version: Data Documenting Versioning in GIT.</ins>
