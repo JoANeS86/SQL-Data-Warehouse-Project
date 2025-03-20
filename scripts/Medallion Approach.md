@@ -10,7 +10,7 @@
 
 #### <ins>a/ Analyzing: Interview Source System Experts.</ins>
 
-#### b/ Coding: Data Ingestion.
+#### <ins>b/ Coding: Data Ingestion.</ins>
 
   * **Create DDL**: Ask the technical experts from the source system to understand the metadata or directly explore
     the data to identify column names and data types (Data Profiling) to define the structure of the tables.
@@ -26,13 +26,13 @@
 
   * Create Stored Procedure.
 
-#### c/ Validating: Data Completeness & Schema Checks.
+#### <ins>c/ Validating: Data Completeness & Schema Checks.</ins>
 
   * **Compare** the data in the Bronze Layer to the data in the Source System, to ensure we're not loosing any data.
 
   * Confirm the data is in the correct place, by making sure it's under the appropriate schema.
 
-#### d/ Docs & Version: Data Documenting Versioning in GIT.
+#### <ins>d/ Docs & Version: Data Documenting Versioning in GIT.</ins>
 
 ---
 
