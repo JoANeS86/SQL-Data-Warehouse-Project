@@ -46,6 +46,8 @@
 
 #### <ins>b/ Coding: Data Cleansing.</ins>
 
+  * Add Metadata columns.
+
   * Check Quality of Bronze.
 
   * Write Data Transformations.
