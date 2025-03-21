@@ -101,6 +101,36 @@
 
      **- crm_sales_details**
 
+         a/ Check for unwanted spaces (I can apply this check in all the string values within the table).
+
+         b/ Next, I compare fields sls_cust_id and sls_prd_key to the related fields in the previous tables, to ensure that I don't have
+            values here that aren't in the customer and product tables.
+
+         c/ Values within the date fields are as INTEGER: I need to review these before CASTING them to DATE, to confirm there are no negative
+            values or zeros (since those can't be CAST to DATE).
+
+            In this case, some zeros were retrieved, so I'll convert those into NULLS by using the NULLIF function.
+
+            Also, I've seen the meaning of the values (first year, then month and finally day), and I have to confirm now that every value's
+            length in that field is 8 (if not 8, then that is poor quality data, and I'll turn those cases into NULLS too).
+
+            Next, check for outliers by validating the boundaries of the date range.
+
+            Finally, I'm CASTING the values: First, from INTEGER to VARCHAR (because I can't direcly CAST INT to DATE), and then VARCHAR to
+            DATE.
+
+            Order Date must always be earlier than the Shipping Date or Due Date.
+
+         d/ Sales = Quantity * Price (and in this case, Negative, Zeros and Nulls are Not Allowed).
+
+            For cases that do not comply with that Rule, firstly I reach people from Business or the Source Systems to discuss about it, then,
+            it usually ends up in 2 potential solutions: 1, data issues are fixed directly in the source, or 2, there's not enough capacity or
+            budget to fix the data issues in the source, so I have to decide whether I leave the data as it is, or if improve the quality of the
+            data (and in that case, ask for the experts to support you on the resolution of those issues, since it depends on their rules).
+
+         e/ DDL must be reviewed and updated when needed, to ensure is matching the data after the transformations (e.g., the dates are not INT
+            anymore, but DATES).
+
   * Insert into Silver.
 
   * Apply the Quality Checks again, now in the newly created Silver Layer tables, to confirm everything is ok.
