@@ -50,7 +50,7 @@
 
   * Check Quality of Bronze, then write Data Transformations.
 
-     - crm_cust_info
+     **- crm_cust_info**
 
         a/ Check for Nulls or Duplicates in Primary Key.
 
@@ -66,13 +66,35 @@
            abbreviated terms, so I'll have to turn those abbreviations into more clear and meaningful values by using the
            CASE WHEN statement (also, I could turn the NULL values into 'N/A' or 'Unknown').
 
-     - crm_prd_info
+     **- crm_prd_info**
    
          a/ Check for Nulls or Duplicates in Primary Key.
 
          b/ I use the SUBSTRING function to split the values in prd_key, and then I compare the new values to the ones that exist
             in the related table: In this case I see that I have to REPLACE '-' by '_' in the cat_id, then I'll compare values in
-            both tables (filter out) to see if there are values that do not exist in one of the tables (that might be not wrong).
+            both tables (filter out) to see if there are values that do not exist in one of the tables (that will need to be reviewed
+            to decide if it's wrong or not).
+
+            I do the same with the second part of the split.
+
+         c/ Check for unwanted spaces (I can apply this check in all the string values within the table).
+
+         d/ Search for negative numbers or NULLS in the prd_cost (for the NULLS, I can use the COALESCE or the ISNULL functions to replace
+            the NULLS by zeros).
+
+         e/ Data Standardization and Consistency. Same process as the one explained for the crm_cust_info table.
+
+         f/ Comparison of dates (end Date must not be earlier than the start date).
+
+            Since many results are retrieved by this check, it's advisable to narrow the results down, i.e., to pick up a specific
+            sample and review it.
+
+            One potential solution here is to switch the dates, but in this case this is causing overlapping date, and also some cases
+            where we have a NULL as a prd_start_dt (each record must have a start date), so it looks like a more solid solution to derive
+            the End Date from the Start Date (the End Date of the current record will come from the Start Date of the next record).
+            
+
+    
 
   * Insert into Silver.
 
