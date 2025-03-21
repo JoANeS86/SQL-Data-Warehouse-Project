@@ -92,7 +92,7 @@
             One potential solution here is to switch the dates, but in this case this is causing overlapping date, and also some cases
             where we have a NULL as a prd_start_dt (each record must have a start date), so it looks like a more solid solution to derive
             the End Date from the Start Date (the End Date of the current record will come from the Start Date of the next record, i.e.,
-            End Date = Start Date of the next record **-1**).
+            End Date = Start Date of the next record -1).
 
             In order to apply the mentioned solution, I'll use the LEAD function.
 
