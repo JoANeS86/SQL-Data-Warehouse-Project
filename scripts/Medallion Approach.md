@@ -99,6 +99,8 @@
             Finally, I can CAST the Dates to remove the time part, since in this case it's not containing any information, but if I do
             that, then I'll need to update the metadata of this Silver table, so these Dates will go from DATETIME to DATE data type.
 
+     **- crm_sales_details**
+
   * Insert into Silver.
 
   * Apply the Quality Checks again, now in the newly created Silver Layer tables, to confirm everything is ok.
