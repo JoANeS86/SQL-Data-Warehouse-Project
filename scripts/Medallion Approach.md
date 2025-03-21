@@ -48,11 +48,35 @@
 
   * Add Metadata columns.
 
-  * Check Quality of Bronze.
+  * Check Quality of Bronze, then write Data Transformations.
 
-  * Write Data Transformations.
+     - crm_cust_info
+
+        a/ Check for Nulls or Duplicates in Primary Key.
+
+           Use the ROW_NUMBER function to pick up only the cst_id occurrence with the MAX cst_create_date
+
+        b/ Check for unwanted spaces (I can apply this check in all the string values within the table).
+
+           Use the TRIM function to transform the affected values.
+
+        c/ Data Standardization and Consistency.
+
+           I review the DISTINCT values of cst_marital_status and cst_gndr, and maybe I could decide that I don't want to use
+           abbreviated terms, so I'll have to turn those abbreviations into more clear and meaningful values by using the
+           CASE WHEN statement (also, I could turn the NULL values into 'N/A' or 'Unknown').
+
+     - crm_prd_info
+   
+         a/ Check for Nulls or Duplicates in Primary Key.
+
+         b/ I use the SUBSTRING function to split the values in prd_key, and then I compare the new values to the ones that exist
+            in the related table: In this case I see that I have to REPLACE '-' by '_' in the cat_id, then I'll compare values in
+            both tables (filter out) to see if there are values that do not exist in one of the tables (that might be not wrong).
 
   * Insert into Silver.
+
+  * Apply the Quality Checks again, now in the newly created Silver Layer tables, to confirm everything is ok.
 
 #### <ins>c/ Validating: Data Correctness Checks.</ins>
 
