@@ -91,10 +91,13 @@
 
             One potential solution here is to switch the dates, but in this case this is causing overlapping date, and also some cases
             where we have a NULL as a prd_start_dt (each record must have a start date), so it looks like a more solid solution to derive
-            the End Date from the Start Date (the End Date of the current record will come from the Start Date of the next record).
-            
+            the End Date from the Start Date (the End Date of the current record will come from the Start Date of the next record, i.e.,
+            End Date = Start Date of the next record **-1**).
 
-    
+            In order to apply the mentioned solution, I'll use the LEAD function.
+
+            Finally, I can CAST the Dates to remove the time part, since in this case it's not containing any information, but if I do
+            that, then I'll need to update the metadata of this Silver table, so these Dates will go from DATETIME to DATE data type.
 
   * Insert into Silver.
 
