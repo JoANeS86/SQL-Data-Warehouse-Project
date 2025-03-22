@@ -131,6 +131,23 @@
          e/ DDL must be reviewed and updated when needed, to ensure is matching the data after the transformations (e.g., the dates are not INT
             anymore, but DATES).
 
+     **- erp_cust_az12**
+
+         a/ In order to be able to connect this table to others through field 'cid', I'm removing prefix 'NAS' from the values that contain it.
+
+            Regarding field 'bdate', first I confirm the data type, that must be DATE, and then I review if there are values out of range.
+
+            And for 'gen, I review the DISTINCT values to see if any transformation is needed there.
+
+     **- erp_loc_a101**
+
+         a/ In this table, I need to clean the values in 'cid' (to remove the hyphen), and regarding 'cntry', I'm cleaning those values as usual.
+
+     **- erp_px_cat_g1v2**
+
+         a/ First columns is ok, then I check for unwanted spaces and for the data standardization and consistency: Everything is ok this time,
+            so no need for any transformation.
+
   * Insert into Silver.
 
   * Apply the Quality Checks again, now in the newly created Silver Layer tables, to confirm everything is ok.
