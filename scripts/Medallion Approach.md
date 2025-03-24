@@ -151,7 +151,65 @@
   * Insert into Silver.
 
   * Apply the Quality Checks again, now in the newly created Silver Layer tables, to confirm everything is ok.
+   
+  * Create Stored Procedure.
 
 #### <ins>c/ Validating: Data Correctness Checks.</ins>
 
 #### <ins>d/ Docs & Version: Data Documenting Versioning in GIT.</ins>
+
+---
+
+## 4. Gold Layer
+
+#### <ins>a/ Analyzing: Explore and Understand the Business Objects.</ins>
+
+#### <ins>b/ Coding: Data Integration.</ins>
+
+  * Build the Business Object.
+
+         a/ Detect the Business Objects hidden in the Source Systems: I go to the Integration Model and I start adding labels.
+
+         b/ Dimension Customers.
+
+            I join the customer tables coming from the Silver Layer, but I avoid using the INNER JOIN since I might lose customers: I will always
+            start with the Master Table and the use LEFT JOIN.
+
+            Tip: After joinin the table, check if any duplicates were introduced by the join logic.
+
+            Manage Integration: In this example we have 2 sources for the gender information, so I select the DISTINCT values of those 2 fields, to
+            have a picture of all the possible scenarios, and after analyzing them, I apply a transformation to pick the appropriate values (in this
+            example, to manage the opposite values coming from the 2 sources, we take for good the ones coming from the CRM, something that I
+            must confirm with the Source Sytem experts).
+
+            I identify the object as a Dimension, and I define a PK for it by using the ROW_NUMBER function (I use Surrogate Key this time, but 
+            there are cases where I could use the PK coming from the Source System).
+
+            Finally, I create the VIEW.
+
+         c/ Dimension Products.
+
+            This time I only need current information, so I'm getting whatever has no end date (prd_end_dt is NULL).
+
+            Then, again, I'm joining tables, checking for duplicates after the JOIN, identifying the object as a Dimension, creating a PK and
+            finally, creating the VIEW.
+
+         d/ Fact Sales.
+
+            After identifying the table as a Fact one, I have to add to it the Surrogate Keys that I've created for the Dimensions (the other IDs
+            now present in the Sales table are coming from the Source System), in order to connect Facts and Dimensions.
+
+            Then, create the VIEW, and check if all the dimension tables can successfully join to the fact table.
+            
+  * Choose Type Dimension vs Fact.
+  * Rename to friendly names (by following the rules of the Naming Convention).
+  * Sort the columns into logical groups to improve readability (e.g., put FirstName and LastName columns together).
+  * Check the quality of the new Gold objects.
+
+#### <ins>c/ Validating: Data Integration Checks.</ins>
+
+#### <ins>d/ Docs & Version: Data Documenting Versioning in GIT.</ins>
+
+  * Data Model
+  * Data Catalog
+  * Data Flow
