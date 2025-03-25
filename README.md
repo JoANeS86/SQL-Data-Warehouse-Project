@@ -10,7 +10,22 @@ In this case, we're using the Medallion Approach, where we're building 3 layers:
   * **Silver**: Clean and Transform.
   * **Gold**: Business Ready Objects.
 
-![image](https://github.com/user-attachments/assets/2e5790f6-4718-4da9-a908-5341e066bbb9)
+  ## High Level Architecture
+  <p align="center">
+  ![image](https://github.com/user-attachments/assets/84a4889d-d1b6-4013-aec3-8451b32be77f)
+  </p>
+---
+
+## Tools
+
+For the completion of this project, we've been using the following tools:
+
+  * [Datasets](https://github.com/JoANeS86/sql-data-warehouse-project/tree/main/datasets): Datasets containing source data for this project.
+  * [SQL Server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads): Light version of SSMS.
+  * [SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16): Integrated environment for managing any SQL infrastructure.
+  * [Git Repository](https://github.com/): Code Hosting Platform for collaboration and version control
+  * [DrawIO](https://www.drawio.com/): Diagramming Application.
+  * [Notion](https://www.notion.so/Data-Warehouse-Project-19102db496af80cc9984cc54b543ae7f): Project Management Tool.
 
 ---
 
