@@ -1,7 +1,16 @@
 # Data Warehouse and Analytics Project
 
-Welcome to the **Data Warehouse and Analytics Project** repository!
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
+Welcome to the **Data Warehouse and Analytics Project** repository.
+
+This is a project proposed by Baraa Khatib Salkini, where we're building a Data Warehouse from scratch: We're loading data to a SQL Server database, where we're analyzing it, cleaning it and transforming it so the data can be utilized by final users.
+
+In this case, we're using the Medallion Approach, where we're building 3 layers:
+  
+  * **Bronze**: Staging, Raw Data.
+  * **Silver**: Clean and Transform.
+  * **Gold**: Business Ready Objects.
+
+![image](https://github.com/user-attachments/assets/2e5790f6-4718-4da9-a908-5341e066bbb9)
 
 ---
 
