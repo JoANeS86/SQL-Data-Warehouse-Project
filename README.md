@@ -64,3 +64,9 @@ These insights empower stakeholders with key business metrics, enabling strategi
 This project is licensed under the [MIT LIcense](LICENSE). You are free to use, modify, and share this project with proper attribution.
 
 ## About Me
+
+Hi, this is Joan, I'm a Data Manager who has been working for different companies during the last years, covering tasks like Data Integration, Data Quality, Reporting or Processes Development.
+
+You can connect with me via LinkedIn.
+
+[![image](https://github.com/user-attachments/assets/68ad3970-fc97-4ce8-b5a7-6273dd385d53)](https://www.linkedin.com/in/joan-albert-garc%C3%ADa-delgado-43616ba3/)
