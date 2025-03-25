@@ -2,7 +2,7 @@
 
 Welcome to the **Data Warehouse and Analytics Project** repository.
 
-This is a project proposed by Baraa Khatib Salkini, where we're building a Data Warehouse from scratch: We're loading data to a SQL Server database, where we're analyzing it, cleaning it and transforming it so the data can be utilized by final users.
+This is a project proposed by [Baraa Khatib Salkini](https://www.linkedin.com/in/baraa-khatib-salkini/?originalSubdomain=de), where we're building a Data Warehouse from scratch: We're loading data to a SQL Server database, where we're analyzing, cleaning and transforming it so the data can be utilized by final users.
 
 In this case, we're using the Medallion Approach, where we're building 3 layers:
   
@@ -11,9 +11,11 @@ In this case, we're using the Medallion Approach, where we're building 3 layers:
   * **Gold**: Business Ready Objects.
 
   ## High Level Architecture
-  <p align="center">
-  ![image](https://github.com/user-attachments/assets/84a4889d-d1b6-4013-aec3-8451b32be77f)
-  </p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/84a4889d-d1b6-4013-aec3-8451b32be77f" />
+</p>
+
 ---
 
 ## Tools
@@ -47,8 +49,8 @@ Develop a modern data warehouse using SQL Server to consolidate sales data, enab
 
 - ### BI: Analytics & Reporting (Data Analytics)
 
-- #### Objective
-- Develop SQL-based analytics to deliver detailed insights into:
+#### Objective
+Develop SQL-based analytics to deliver detailed insights into:
 - **Customer Behavior**
 - **Product Performance**
 - **Sales Trends**
