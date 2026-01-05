@@ -4,6 +4,10 @@
 
 ## 1. Prepare everything.
 
+<p align="center">
+<img src="https://github.com/user-attachments/assets/7a90eda7-02db-4860-8795-257f62b05e6e" />
+</p>
+
 ---
 
 ## 2. Bronze Layer.
