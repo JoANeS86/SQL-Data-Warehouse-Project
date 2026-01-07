@@ -175,6 +175,10 @@
 
 #### <ins>a/ Analyzing: Explore and Understand the Business Objects.</ins>
 
+<p align="center">
+<img src="https://github.com/user-attachments/assets/f7ffb7a9-160f-4bea-a384-1c6e5792d577" />
+</p>
+
 #### <ins>b/ Coding: Data Integration.</ins>
 
   * Build the Business Object.
