@@ -64,11 +64,15 @@
 
            Use the TRIM function to transform the affected values.
 
+           "WHERE cst_lastname != TRIM(cst_lastname)"
+
         c/ Data Standardization and Consistency.
 
            I review the DISTINCT values of cst_marital_status and cst_gndr, and maybe I could decide that I don't want to use
            abbreviated terms, so I'll have to turn those abbreviations into more clear and meaningful values by using the
            CASE WHEN statement (also, I could turn the NULL values into 'N/A' or 'Unknown').
+
+           "SELECT DISTINCT cst_gndr FROM Bronze.crm_cust_info"
 
      **- crm_prd_info**
    
