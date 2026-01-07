@@ -83,6 +83,9 @@
             both tables (filter out) to see if there are values that do not exist in one of the tables (that will need to be reviewed
             to decide if it's wrong or not).
 
+            WHERE REPLACE(SUBSTRING(prd_key, 1, 5, '-', '_') NOT IN
+            (SELECT DISTINCT id FROM Bronze.erp_px_cat_g1v2)
+
             I do the same with the second part of the split.
 
          c/ Check for unwanted spaces (I can apply this check in all the string values within the table).
