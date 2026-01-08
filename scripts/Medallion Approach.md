@@ -188,7 +188,7 @@
          b/ Dimension Customers.
 
             I join the customer tables coming from the Silver Layer, but I avoid using the INNER JOIN since I might lose customers: I will always
-            start with the Master Table and the use LEFT JOIN.
+            start with the Master Table and then use LEFT JOIN.
 
             Tip: After joinin the table, check if any duplicates were introduced by the join logic.
 
