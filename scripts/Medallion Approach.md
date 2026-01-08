@@ -1,5 +1,13 @@
 # Medallion Approach
 
+#### <ins>a/ Defined Naming Conventions.</ins>
+
+#### <ins>b/ Create GIT repository.</ins>
+
+#### <ins>c/ Create Database and Schemas.</ins>
+
+#### <ins>d/ Commit code in Git.</ins>
+
 ---
 
 ## 1. Prepare everything.
