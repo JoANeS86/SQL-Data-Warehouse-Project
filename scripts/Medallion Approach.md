@@ -38,7 +38,7 @@
 
 #### <ins>c/ Validating: Data Completeness & Schema Checks.</ins>
 
-  * **Compare** the data in the Bronze Layer to the data in the Source System, to ensure we're not loosing any data.
+  * **Compare** the data in the Bronze Layer to the data in the Source System, to ensure we're not losing any data.
 
   * Confirm the data is in the correct place, by making sure it's under the appropriate schema.
 
