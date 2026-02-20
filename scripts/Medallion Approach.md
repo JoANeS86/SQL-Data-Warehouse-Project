@@ -196,7 +196,7 @@
             I join the customer tables coming from the Silver Layer, but I avoid using the INNER JOIN since I might lose customers: I will always
             start with the Master Table and then use LEFT JOIN.
 
-            Tip: After joinin the table, check if any duplicates were introduced by the join logic.
+            Tip: After joining the table, check if any duplicates were introduced by the join logic.
 
             Manage Integration: In this example we have 2 sources for the gender information, so I select the DISTINCT values of those 2 fields, to
             have a picture of all the possible scenarios, and after analyzing them, I apply a transformation to pick the appropriate values (in this
