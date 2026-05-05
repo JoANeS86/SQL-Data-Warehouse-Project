@@ -1,5 +1,0 @@
-I've loaded the following tables to Power BI:
-
-     Gold.fact_sales
-     Gold.dim_product
-     Gold.dim_customers
