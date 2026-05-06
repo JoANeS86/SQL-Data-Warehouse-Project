@@ -6,8 +6,9 @@ I've loaded the following tables to Power BI:
   - Gold.dim_customers
   - Gold.dim_products
 
-Then I've created a **DimDate** table and related it to one active relationship
-(order_date) and added inactive relationships (shipping_date and due_date).
+Then I've created a **DimDate** table and related it to one active relationship (order_date) and added inactive relationships (shipping_date and due_date).
+
+**I've marked the DimDate as the Date Table:** Marking the DimDate table as the Date Table in Power BI is important because it enables time-intelligence functions (like YTD, MoM, and rolling calculations) to work correctly by explicitly defining a continuous, unique date column.
 
      DimDate = 
      ADDCOLUMNS(
