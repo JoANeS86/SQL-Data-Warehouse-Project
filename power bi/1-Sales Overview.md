@@ -48,7 +48,7 @@ instead of the default (order_date), so the revenue is calculated based on shipp
 
 Also consider:
 
-     Total Cost = SUMX(fact_sales, fact_sales[quantity] * RELATED(dim_products[cost]))
+     Total Cost = SUMX('Gold fact_sales', 'Gold fact_sales'[quantity] * RELATED('Gold dim_products'[cost]))
 
      Margin = [Total Sales] - [Total Cost]
 
@@ -56,9 +56,9 @@ Also consider:
 
 Gold.dim_customer:
 
-     Full Name = dim_customers[first_name] & " " & dim_customers[last_name]
+     Full Name = 'Gold dim_customers'[first_name] & " " & 'Gold dim_customers'[last_name]
 
-     Age = DATEDIFF(dim_customers[birthdate], TODAY(), YEAR)
+     Age = DATEDIFF('Gold dim_customers'[birthdate], TODAY(), YEAR)
 
 
 
