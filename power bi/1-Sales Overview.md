@@ -28,7 +28,7 @@ Then I've created a **DimDate** table and related it to one active relationship 
      Avg Price = AVERAGE('Gold fact_sales'[price])
 
 
-     Revenue YoY = 
+     Revenue LY = 
      CALCULATE(
          [Total Revenue],
          SAMEPERIODLASTYEAR(DimDate[Date])
