@@ -19,40 +19,6 @@ Then I've created a **DimDate** table and related it to one active relationship 
          "YearMonth", FORMAT([Date], "YYYY-MM")
      )
 
-### <ins>Measures</ins>
-
-     Total Revenue = SUM('Gold fact_sales'[sales_amount])
-     
-     Total Quantity = SUM('Gold fact_sales'[quantity])
-     
-     Avg Price = AVERAGE('Gold fact_sales'[price])
-
-
-     Revenue LY = 
-     CALCULATE(
-         [Total Revenue],
-         SAMEPERIODLASTYEAR(DimDate[Date])
-     )
-
-
-     Revenue MTD = 
-     TOTALMTD([Total Revenue], DimDate[Date])
-
-The following measure temporarily activates the relationship using shipping_date
-instead of the default (order_date), so the revenue is calculated based on shipping date.
-     
-     Revenue by Shipping Date = 
-     CALCULATE(
-         [Total Revenue],
-         USERELATIONSHIP('Gold fact_sales'[shipping_date], DimDate[Date])
-     )
-
-Also consider:
-
-     Total Cost = SUMX('Gold fact_sales', 'Gold fact_sales'[quantity] * RELATED('Gold dim_products'[cost]))
-
-     Margin = [Total Sales] - [Total Cost]
-
 ### <ins>Columns</ins>
 
 Gold.dim_customer:
