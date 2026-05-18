@@ -62,9 +62,9 @@
               [Customer Percentile] <= BandEnd
           )
       )
-
-Revenue by Shipping Date = 
-CALCULATE(
-    [Total Revenue],
-    USERELATIONSHIP('Gold fact_sales'[shipping_date], DimDate[Date])
-)
+      
+      Revenue by Shipping Date = 
+      CALCULATE(
+          [Total Revenue],
+          USERELATIONSHIP('Gold fact_sales'[shipping_date], DimDate[Date])
+      )
