@@ -15,6 +15,12 @@
         ,
         DESC
     )
+
+    Customer Rank Ratio = 
+    DIVIDE(
+        [Customer Rank],
+        COUNTROWS(ALLSELECTED('Gold dim_customers'))
+    )
     
     Customer Percentile = 
     DIVIDE(
