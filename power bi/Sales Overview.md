@@ -17,7 +17,15 @@ Then I've created a **DimDate** table and related it to one active relationship 
          "Month", FORMAT([Date], "MMM"),
          "MonthNumber", MONTH([Date]),
          "YearMonth", FORMAT([Date], "YYYY-MM")
-     )
+      )
+
+**Percentile Bands** table:
+
+      Percentile Bands = 
+      SELECTCOLUMNS(
+          GENERATESERIES(0, 99, 1),
+          "Value", [Value] / 100
+      )
 
 ### <ins>Columns</ins>
 
