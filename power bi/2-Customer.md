@@ -1,5 +1,8 @@
 ### <ins>Measures</ins>
 
+    For just counting unique values, prefer DISTINCTCOUNT().
+    COUNTROWS(DISTINCT()) becomes useful when you want to operate on the distinct table before counting it.
+    
     Total Customers = DISTINCTCOUNT('Gold dim_customers'[customer_key])
     
     Top Customer Revenue = 
