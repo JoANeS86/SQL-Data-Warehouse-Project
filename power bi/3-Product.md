@@ -1,6 +1,10 @@
 ### <ins>Measures</ins>
 
+For just counting unique values, prefer DISTINCTCOUNT(). COUNTROWS(DISTINCT()) becomes useful when you want to operate on the distinct table before counting it.
+
     Total Products = DISTINCTCOUNT('Gold dim_products'[product_id])
+
+
     
     Top Product Revenue = 
     MAXX(
