@@ -62,9 +62,98 @@
               [Customer Percentile] <= BandEnd
           )
       )
+
+      
       
       Revenue by Shipping Date = 
       CALCULATE(
           [Total Revenue],
           USERELATIONSHIP('Gold fact_sales'[shipping_date], DimDate[Date])
       )
+
+      New Customer Revenue
+
+      New Customer Revenue =
+      VAR CurrentCustomers =
+          CALCULATETABLE(
+              VALUES('Gold fact_sales'[customer_key])
+          )
+      
+      VAR PreviousCustomers =
+          CALCULATETABLE(
+              VALUES('Gold fact_sales'[customer_key]),
+              SAMEPERIODLASTYEAR(DimDate[Date])
+          )
+      
+      VAR NewCustomerSet =
+          EXCEPT(
+              CurrentCustomers,
+              PreviousCustomers
+          )
+      
+      RETURN
+          CALCULATE(
+              [Total Revenue],
+              TREATAS(
+                  NewCustomerSet,
+                  'Gold fact_sales'[customer_key]
+              )
+          )
+      
+      Retained Customer Revenue
+      
+      Retained Customer Revenue =
+      VAR CurrentCustomers =
+          CALCULATETABLE(
+              VALUES('Gold fact_sales'[customer_key])
+          )
+      
+      VAR PreviousCustomers =
+          CALCULATETABLE(
+              VALUES('Gold fact_sales'[customer_key]),
+              SAMEPERIODLASTYEAR(DimDate[Date])
+          )
+      
+      VAR RetainedCustomerSet =
+          INTERSECT(
+              CurrentCustomers,
+              PreviousCustomers
+          )
+      
+      RETURN
+          CALCULATE(
+              [Total Revenue],
+              TREATAS(
+                  RetainedCustomerSet,
+                  'Gold fact_sales'[customer_key]
+              )
+          )
+      
+      Lost Customer Revenue
+      
+      Lost Customer Revenue =
+      VAR CurrentCustomers =
+          CALCULATETABLE(
+              VALUES('Gold fact_sales'[customer_key])
+          )
+      
+      VAR PreviousCustomers =
+          CALCULATETABLE(
+              VALUES('Gold fact_sales'[customer_key]),
+              SAMEPERIODLASTYEAR(DimDate[Date])
+          )
+      
+      VAR LostCustomerSet =
+          EXCEPT(
+              PreviousCustomers,
+              CurrentCustomers
+          )
+      
+      RETURN
+          CALCULATE(
+              [Revenue LY],
+              TREATAS(
+                  LostCustomerSet,
+                  'Gold fact_sales'[customer_key]
+              )
+          )    
