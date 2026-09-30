@@ -99,6 +99,8 @@
                   'Gold fact_sales'[customer_key]
               )
           )
+
+      Customer Retention Analysis (Virtual Tables):
       
       Retained Customer Revenue
       
