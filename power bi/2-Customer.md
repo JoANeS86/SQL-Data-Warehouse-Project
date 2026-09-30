@@ -60,4 +60,162 @@
             )
         ),
         CALCULATE([Total Revenue], ALL('Gold dim_customers'))
-    )  
+    )
+
+    Customer Retention Analysis (Virtual Tables):
+
+    New Customers
+
+    New Customers =
+    VAR CurrentCustomers =
+        CALCULATETABLE(
+            VALUES('Gold fact_sales'[customer_key])
+        )
+    
+    VAR PreviousCustomers =
+        CALCULATETABLE(
+            VALUES('Gold fact_sales'[customer_key]),
+            SAMEPERIODLASTYEAR(DimDate[Date])
+        )
+    
+    VAR NewCustomerSet =
+        EXCEPT(
+            CurrentCustomers,
+            PreviousCustomers
+        )
+    
+    RETURN
+        COUNTROWS(NewCustomerSet)
+
+    Retained Customers
+    
+    Retained Customers =
+    VAR CurrentCustomers =
+        CALCULATETABLE(
+            VALUES('Gold fact_sales'[customer_key])
+        )
+    
+    VAR PreviousCustomers =
+        CALCULATETABLE(
+            VALUES('Gold fact_sales'[customer_key]),
+            SAMEPERIODLASTYEAR(DimDate[Date])
+        )
+    
+    VAR RetainedCustomerSet =
+        INTERSECT(
+            CurrentCustomers,
+            PreviousCustomers
+        )
+    
+    RETURN
+        COUNTROWS(RetainedCustomerSet)
+        
+    Lost Customers
+    
+    Lost Customers =
+    VAR CurrentCustomers =
+        CALCULATETABLE(
+            VALUES('Gold fact_sales'[customer_key])
+        )
+    
+    VAR PreviousCustomers =
+        CALCULATETABLE(
+            VALUES('Gold fact_sales'[customer_key]),
+            SAMEPERIODLASTYEAR(DimDate[Date])
+        )
+    
+    VAR LostCustomerSet =
+        EXCEPT(
+            PreviousCustomers,
+            CurrentCustomers
+        )
+    
+    RETURN
+        COUNTROWS(LostCustomerSet)
+
+    New Customer Revenue
+    
+    New Customer Revenue =
+    VAR CurrentCustomers =
+        CALCULATETABLE(
+            VALUES('Gold fact_sales'[customer_key])
+        )
+    
+    VAR PreviousCustomers =
+        CALCULATETABLE(
+            VALUES('Gold fact_sales'[customer_key]),
+            SAMEPERIODLASTYEAR(DimDate[Date])
+        )
+    
+    VAR NewCustomerSet =
+        EXCEPT(
+            CurrentCustomers,
+            PreviousCustomers
+        )
+    
+    RETURN
+        CALCULATE(
+            [Total Revenue],
+            TREATAS(
+                NewCustomerSet,
+                'Gold fact_sales'[customer_key]
+            )
+        )
+
+    Retained Customer Revenue
+    
+    Retained Customer Revenue =
+    VAR CurrentCustomers =
+        CALCULATETABLE(
+            VALUES('Gold fact_sales'[customer_key])
+        )
+    
+    VAR PreviousCustomers =
+        CALCULATETABLE(
+            VALUES('Gold fact_sales'[customer_key]),
+            SAMEPERIODLASTYEAR(DimDate[Date])
+        )
+    
+    VAR RetainedCustomerSet =
+        INTERSECT(
+            CurrentCustomers,
+            PreviousCustomers
+        )
+    
+    RETURN
+        CALCULATE(
+            [Total Revenue],
+            TREATAS(
+                RetainedCustomerSet,
+                'Gold fact_sales'[customer_key]
+            )
+        )
+    
+    Lost Customer Revenue
+    
+    Lost Customer Revenue =
+    VAR CurrentCustomers =
+        CALCULATETABLE(
+            VALUES('Gold fact_sales'[customer_key])
+        )
+    
+    VAR PreviousCustomers =
+        CALCULATETABLE(
+            VALUES('Gold fact_sales'[customer_key]),
+            SAMEPERIODLASTYEAR(DimDate[Date])
+        )
+    
+    VAR LostCustomerSet =
+        EXCEPT(
+            PreviousCustomers,
+            CurrentCustomers
+        )
+    
+    RETURN
+        CALCULATE(
+            [Revenue LY],
+            TREATAS(
+                LostCustomerSet,
+                'Gold fact_sales'[customer_key]
+            )
+        )    
