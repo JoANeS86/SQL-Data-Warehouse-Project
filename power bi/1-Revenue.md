@@ -100,7 +100,9 @@
               )
           )
 
-      Customer Retention Analysis (Virtual Tables):
+
+#### <ins>Customer Retention Analysis (Virtual Tables):</ins>
+
       
       Retained Customer Revenue
       
