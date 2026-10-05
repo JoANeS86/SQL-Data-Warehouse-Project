@@ -62,7 +62,9 @@
         CALCULATE([Total Revenue], ALL('Gold dim_customers'))
     )
 
-    Customer Retention Analysis (Virtual Tables):
+
+#### <ins>Customer Retention Analysis (Virtual Tables):</ins>
+
 
     New Customers
 
