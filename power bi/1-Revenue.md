@@ -160,4 +160,29 @@
                   LostCustomerSet,
                   'Gold fact_sales'[customer_key]
               )
-          )    
+          )
+
+#### <ins>Top N Revenue</ins>
+
+            Top N Revenue =
+            VAR N = [Selected Top N]
+            
+            VAR CustomerRevenue =
+                ADDCOLUMNS(
+                    ALLSELECTED('Gold dim_customers'[customer_key]),
+                    "@Revenue", [Total Revenue]
+                )
+            
+            VAR TopCustomers =
+                TOPN(
+                    N,
+                    CustomerRevenue,
+                    [@Revenue],
+                    DESC
+                )
+            
+            RETURN
+                SUMX(
+                    TopCustomers,
+                    [@Revenue]
+                )
