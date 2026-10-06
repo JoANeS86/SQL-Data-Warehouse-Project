@@ -164,7 +164,7 @@
 
 #### <ins>Top N Revenue</ins>
 
-***[Selected Top N] is a measure saved in the "Selections" subfolder.
+**[Selected Top N] is a measure saved in the "Selections" subfolder.*
 
             Top N Revenue =
             VAR N = [Selected Top N]
