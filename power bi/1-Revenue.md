@@ -188,3 +188,14 @@
                     TopCustomers,
                     [@Revenue]
                 )
+
+#### <ins>Top N Revenue %</ins>
+
+            Top N Revenue % =
+            DIVIDE(
+                [Top N Revenue],
+                CALCULATE(
+                    [Total Revenue],
+                    ALLSELECTED('Gold dim_customers')
+                )
+            )
