@@ -69,7 +69,11 @@
       CALCULATE(
           [Total Revenue],
           USERELATIONSHIP('Gold fact_sales'[shipping_date], DimDate[Date])
-      )
+      )     
+
+
+#### <ins>Customer Retention Analysis (Virtual Tables):</ins>
+
 
       New Customer Revenue
 
@@ -99,11 +103,7 @@
                   'Gold fact_sales'[customer_key]
               )
           )
-
-
-#### <ins>Customer Retention Analysis (Virtual Tables):</ins>
-
-      
+          
       Retained Customer Revenue
       
       Retained Customer Revenue =
